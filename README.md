@@ -3,6 +3,7 @@
    This Jenkins pipeline automates the build, testing, and deployment workflow for a simple Python application. The primary functionality includes building a Docker image, pushing it to the Docker registry, and updating the deployment configuration for subsequent deployment through ArgoCD. The deployment process is orchestrated using Jenkins, Minikube, and ArgoCD on a specified VM (64.227.169.89).
 
 ## Workflow Overview
+
 - Checkout Source Code:
 
 The pipeline starts by checking out the source code from the specified repository. (optional for scm polling)

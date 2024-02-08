@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: python-hello-world
-        image: gautam2805/netappassignment:replaceImageTag
+        image: gautam2805/netappassignment:42
         ports:
         - containerPort: 8080

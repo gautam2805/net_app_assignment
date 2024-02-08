@@ -9,24 +9,6 @@ pipeline {
             }
         }
 
-        // stage('Build and Test (Pytest)') {
-        //     steps {
-        //         node('any') {  // Specify 'any' as the label
-        //             echo 'Setting up Python environment'
-
-        //             // Create and activate virtual environment
-        //             sh 'python3 -m venv venv'
-        //             sh 'source venv/bin/activate'
-
-        //             // Install any required Python packages using pip
-        //             sh 'pip install pytest'  // Add other packages as needed
-
-        //             echo 'Running Pytest'
-        //             sh 'pytest'
-        //         }
-        //     }
-        // }
-
         stage('Build and Push Docker Image') {
             environment {
                 DOCKER_IMAGE = "gautam2805/netappassignment:${BUILD_NUMBER}"
@@ -44,7 +26,7 @@ pipeline {
             }
         }
 
-        stage('Update Deployment File') {
+        stage('Update APP Deployment File') {
             environment {
                 GIT_REPO_NAME = "netappassignment"
                 GIT_USER_NAME = "gautam2805"

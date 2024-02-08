@@ -46,7 +46,7 @@ pipeline {
     
         stage('Update APP Deployment File') {
            environment {
-              GIT_REPO_NAME = "netappassignment"
+              GIT_REPO_NAME = "net_app_assignment"
               GIT_USER_NAME = "gautam2805"
             }
            steps {
@@ -56,7 +56,7 @@ pipeline {
                     git config user.email "gautampeace30@gmail.com"
                     git config user.name "gautam2805"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" /var/lib/jenkins/workspace/Net-app-automated-pipeline/NET_APP_ASSIGNMENT/assignment_app_manifest/deployment.yml
+                    sed -i"s/replaceImageTag/${BUILD_NUMBER}/g" assignment_app_manifest/deployment.yml
                     git add deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main

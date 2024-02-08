@@ -11,19 +11,19 @@ pipeline {
 
         stage('Build and Test (Pytest)') {
             steps {
-                // Install python3-venv package
-                sh 'apt-get update'
-                sh 'apt-get install -y python3-venv'
+                node('any') {  // Specify 'any' as the label
+                    echo 'Setting up Python environment'
 
-                // Create and activate virtual environment
-                sh 'python3 -m venv venv'
-                sh 'source venv/bin/activate'
+                    // Create and activate virtual environment
+                    sh 'python3 -m venv venv'
+                    sh 'source venv/bin/activate'
 
-                // Install any required Python packages using pip
-                sh 'pip install pytest'  // Add other packages as needed
-                
-                echo 'Running Pytest'
-                sh 'pytest'
+                    // Install any required Python packages using pip
+                    sh 'pip install pytest'  // Add other packages as needed
+
+                    echo 'Running Pytest'
+                    sh 'pytest'
+                }
             }
         }
 
